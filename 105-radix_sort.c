@@ -19,7 +19,7 @@ int getMax(int *array, int size)
 			max = array[i];
 	}
 
-	return max;
+	return (max);
 }
 
 /**
