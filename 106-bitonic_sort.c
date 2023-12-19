@@ -21,7 +21,8 @@ void swap_values(int *a, int *b)
  * @seq: The size of the sequence.
  * @direction: The direction to merge.
  */
-void bitonic_merge(int *array, size_t size, size_t start, size_t seq, char direction)
+void bitonic_merge(int *array, size_t size,
+		size_t start, size_t seq, char direction)
 {
 	size_t i, jump = seq / 2;
 
@@ -46,7 +47,8 @@ void bitonic_merge(int *array, size_t size, size_t start, size_t seq, char direc
  * @seq: The size of the sequence.
  * @direction: The direction to build.
  */
-void bitonic_build(int *array, size_t size, size_t start, size_t seq, char direction)
+void bitonic_build(int *array, size_t size,
+		size_t start, size_t seq, char direction)
 {
 	size_t cut = seq / 2;
 	char *str = (direction == 'U') ? "UP" : "DOWN";
