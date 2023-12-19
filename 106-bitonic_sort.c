@@ -1,4 +1,5 @@
 #include "sort.h"
+#include <stdio.h>
 
 /**
  * swap_values - Swap two integers in an array.
@@ -48,12 +49,19 @@ void bitonic_merge(int *array, size_t size, size_t start, size_t seq, char direc
 void bitonic_build(int *array, size_t size, size_t start, size_t seq, char direction)
 {
 	size_t cut = seq / 2;
+	char *str = (direction == 'U') ? "UP" : "DOWN";
 
 	if (seq > 1)
 	{
+		printf("Merging [%lu/%lu] (%s):\n", seq, size, str);
+		print_array(array + start, seq);
+
 		bitonic_build(array, size, start, cut, 'U');
 		bitonic_build(array, size, start + cut, cut, 'D');
 		bitonic_merge(array, size, start, seq, direction);
+
+		printf("Result [%lu/%lu] (%s):\n", seq, size, str);
+		print_array(array + start, seq);
 	}
 }
 
